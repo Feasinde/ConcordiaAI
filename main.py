@@ -1,6 +1,120 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import rdflib.graph as g
 from rake_nltk import Rake
 from textblob import TextBlob
+
+
+
+
+
+
 
 graph = g.Graph()
 graph.parse('./92771.ttl', format='ttl')
@@ -8,12 +122,14 @@ graph.parse('./92771.ttl', format='ttl')
 wantsTalk = True;
 
 qres = graph.query(
-    """SELECT ?person
+        
+        """SELECT ?person
 WHERE
 {  
   ?person dbo:ReligiousBuilding :nave .
 }""")
- 
+
+
 # for row in qres:
 #     print(row[0])      
 help = input("How can I help you?\n")
@@ -26,7 +142,16 @@ while wantsTalk:
     help = input("Do you have anymore questions?\n")
     
     type(help)
-    testimonial = TextBlob(help)
+
+
+
+
+
+
+
+
+
+testimonial = TextBlob(help)
     if testimonial.sentiment.polarity < 0:
         wantsTalk = False
         print("Alright have a nice day!") # To get keyword phrases ranked highest to lowest.
@@ -34,4 +159,23 @@ while wantsTalk:
     r = Rake() # Uses stopwords for english from NLTK, and all punctuation characters.
     r.extract_keywords_from_text(help)
     #print(r.get_ranked_phrases()) # To get keyword phrases ranked highest to lowest.
+=======
+print("HOLA MUNDO")
+
+from rdflib import Graph()
+
+g = Graph()
+
+PATH_TO_DATA = "92771.ttl"
+
+g.parse(PATH_TO_DATA)
+
+for i in g.objects(): print(i)
+>>>>>>> a976707e5e7eaa6782fa614b0e0739eae69194d2
+
+git commit
+
+
+
+
 
